@@ -17,7 +17,7 @@ Running the CouchDB server
 
 Run the following command to start rabbitmq:
 
-	ID=$(sudo docker run -d -p 5984 tutum/rabbitmq)
+	ID=$(sudo docker run -d -p 5984 tutum/couchdb)
 
 
 It will store the new container ID (like `d35bf1374e88`) in $ID. Get the allocated external port:
