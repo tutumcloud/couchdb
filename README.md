@@ -1,30 +1,53 @@
-tutum-docker-couchdb
-=====================
+tutum-docker-mysql
+==================
 
-Base docker image to run a CouchDB server
+Base docker image to run a CouchDB database server
 
 
 Usage
 -----
 
-To create the image `tutum/couchdb`, execute the following command on the tutum-couchdb folder:
+To create the image `tutum/couchdb`, execute the following command on the tutum-docker-couchdb folder:
 
-	sudo docker build -t tutum/couchdb .
+	docker build -t tutum/couchdb .
+
+To run the image and bind to port 5984:
+
+	docker run -d -p 5984:5984 tutum/mysql
+
+The first time that you run your container, a new user `admin` with all privileges 
+will be created in CouchDB with a random password. To get the password, check the logs
+of the container by running:
+
+	docker logs <CONTAINER_ID>
+
+You will see an output like the following:
+
+	========================================================================
+	You can now connect to this CouchDB server using:
+
+	    curl http://admin:BCRmhDz4hT7g@<host>:<port>
+
+	Please remember to change the above password as soon as possible!
+	========================================================================
+
+In this case, `BCRmhDz4hT7g` is the password allocated to the `admin` user.
+
+You can now test your deployment:
+
+	curl http://admin:BCRmhDz4hT7g@127.0.0.1:5984/
 
 
-Running the CouchDB server
----------------------------
+Setting a specific password for the admin account
+-------------------------------------------------
 
-Run the following command to start rabbitmq:
+If you want to use a preset password instead of a random generated one, you can
+set the environment variable `COUCHDB_PASS` to your specific password when running the container:
 
-	ID=$(sudo docker run -d -p 5984 tutum/couchdb)
+	docker run -d -p 5984:5984 -e COUCHDB_PASS="mypass" tutum/couchdb
 
+You can now test your deployment:
 
-It will store the new container ID (like `d35bf1374e88`) in $ID. Get the allocated external port:
-
-	sudo docker port $ID 5984
-
-
-It will print the allocated port (like 47283).
+	curl http://admin:mypass@127.0.0.1:5984/
 
 Done!
