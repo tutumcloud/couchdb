@@ -17,7 +17,7 @@ touch /.couchdb_admin_created
 echo "========================================================================"
 echo "You can now connect to this CouchDB server using:"
 echo ""
-echo "  USERNAME:admin           PASSWORD:$PASS"
+echo "    curl http://admin:$PASS@<host>:<port>"
 echo ""
 echo "Please remember to change the above password as soon as possible!"
 echo "========================================================================"
