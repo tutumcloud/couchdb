@@ -1,5 +1,5 @@
-tutum-docker-mysql
-==================
+tutum-docker-couchdb
+====================
 
 Base docker image to run a CouchDB database server
 
