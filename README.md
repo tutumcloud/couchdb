@@ -51,3 +51,5 @@ You can now test your deployment:
 	curl http://admin:mypass@127.0.0.1:5984/
 
 Done!
+
+**by http://www.tutum.co**
