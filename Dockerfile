@@ -1,10 +1,12 @@
-FROM ubuntu:trusty
+FROM tutum/curl:trusty
 MAINTAINER FENG, HONGLIN <hfeng@tutum.co>
 
 #install CouchDB
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y couchdb 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl pwgen
+RUN apt-get update && \
+    apt-get install -y couchdb pwgen && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN mkdir /var/run/couchdb
 RUN sed -i -r 's/;bind_address = 127.0.0.1/bind_address = 0.0.0.0/' /etc/couchdb/local.ini
 
