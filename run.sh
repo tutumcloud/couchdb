@@ -7,7 +7,7 @@ set -m
 couchdb &
 
 #set password for admin account
-if [ ! -f /.couchdb_admin_created ]; then
+if [ ! -f /var/lib/couchdb/.couchdb_admin_created ]; then
 	/create_couchdb_admin_user.sh
 fi
 
