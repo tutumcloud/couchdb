@@ -15,4 +15,5 @@ ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 
 EXPOSE 5984
+VOLUME ["/var/lib/couchdb"]
 CMD ["/run.sh"]
