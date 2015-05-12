@@ -1,0 +1,6 @@
+couchdb:
+  image: tutum/couchdb
+  ports:
+    - 5984:5984
+  environment:
+    - COUCHDB_PASS="**ChangeMe**"
