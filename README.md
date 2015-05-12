@@ -1,6 +1,8 @@
 tutum-docker-couchdb
 ====================
 
+[![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
+
 Base docker image to run a CouchDB database server
 
 
@@ -15,7 +17,7 @@ To run the image and bind to port 5984:
 
 	docker run -d -p 5984:5984 tutum/couchdb
 
-The first time that you run your container, a new user `admin` with all privileges 
+The first time that you run your container, a new user `admin` with all privileges
 will be created in CouchDB with a random password. To get the password, check the logs
 of the container by running:
 
