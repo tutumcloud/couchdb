@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f /var/lib/couchdb/.couchdb_admin_created ]; then
+if [ -f /etc/couchdb/.couchdb_admin_created ]; then
     echo "CouchDB 'admin' user already created!"
     exit 0
 fi
@@ -20,7 +20,7 @@ done
 echo "=> Creating an admin user with a ${_word} password in CouchDB"
 curl -s -X PUT http://127.0.0.1:5984/_config/admins/admin -d '"'${PASS}'"'
 echo "=> Done!"  
-touch /var/lib/couchdb/.couchdb_admin_created
+touch /etc/couchdb/.couchdb_admin_created
     
 echo "========================================================================"
 echo "You can now connect to this CouchDB server using:"
